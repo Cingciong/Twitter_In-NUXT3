@@ -17,7 +17,7 @@
             
             <SidebarItem v-for="SidebarItem in youMight">
             
-                <h2>{{ SidebarItem.title }}</h2>
+                <h2 class="font-bold">{{ SidebarItem.title }}</h2>
 
                 <h1>{{ SidebarItem.count }}</h1>
             
@@ -28,7 +28,17 @@
         </div>    
 
         <div class=""><!--Trends for you-->
-            <SidebarPreviewCard title="Trends for you"/>
+            <SidebarPreviewCard title="Trends for you">
+                <SidebarTrend v-for="SidebarTrend in trends">
+                    <div class="flex flex-row items-center">
+                            <img class="w-10 h-10 rounded-full" :src="SidebarTrend.img">
+                        <div class="ml-4 flex flex-col gap-1">
+                            <h1 class="font-semibold"> {{ SidebarTrend.name }}</h1>
+                            <h1 class="font-thin"> {{ SidebarTrend.handle }}</h1>
+                        </div>
+                    </div>
+                </SidebarTrend>
+            </SidebarPreviewCard>
         </div>
     </div>
 </template>
@@ -57,5 +67,22 @@ const youMight = ref([
     },
 ]);
 
+const trends = ref([
+    {
+        img: "https://picsum.photos/200/200",
+        name: "Joe Bidon",
+        handle: "#RCM",
+    },
+    {
+        img: "https://picsum.photos/200/200",
+        name: "fhfh",
+        handle: "fgg",
+    },
+    {
+        img: "https://picsum.photos/200/200",
+        name: "gssgg",
+        handle: "dsgsd",
+    },
+]);
 
 </script>
