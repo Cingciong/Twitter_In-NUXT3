@@ -14,7 +14,7 @@
         <div class="bg-blue-500 col-span-9 md:col-span-5">qq</div>
 
         <!--right bar-->
-        <div class="bg-green-500 xs:col-span-1 md:col-span-3">qq</div>
+        <SidebarRight />
 
       </div>
     </div>
@@ -23,6 +23,6 @@
   </div>
 </template>
 <script setup>
-  const darkMode = ref(true);
+  const darkMode = ref(false);
 
 </script>

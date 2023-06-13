@@ -2,9 +2,9 @@
     <div class="h-screen flex flex-col mt-2 md:ml-7 xl:ml-28">
         <div class="rounded-full w-12 h-12 p-1 hover:bg-blue-50 dark:hover:bg-dim-200 dark:text-white"  :class='Transition'>
             <nuxt-link to="/">
-            <div class="w-full flex items-center">
-                <LogoTwitter />
-            </div>
+                <div class="w-full flex items-center">
+                    <LogoTwitter />
+                </div>
             </nuxt-link>  
         </div> 
 
