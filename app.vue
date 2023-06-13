@@ -11,7 +11,11 @@
         </div>
 
         <!--main-->
-        <div class="bg-blue-500 col-span-9 md:col-span-5">qq</div>
+        <main class=" col-span-9 md:col-span-5">
+          <router-view>
+            
+          </router-view>
+        </main>
 
         <!--right bar-->
         <SidebarRight />

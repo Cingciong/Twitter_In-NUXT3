@@ -1,5 +1,5 @@
 <template>
-    <div class=" xl:col-span-4  md:block  bg-blue-500  flex flex-col mdLcol-span-3 mt-2">
+    <div class=" xl:col-span-4  md:bloc flex flex-col mdLcol-span-3 mt-2">
 
         <div class="w-full h-11 p bg-gray-200 rounded-full focus:bg-inherit  hover:bg-slate-50 hover:border-y-2 hover:border-dim-100 mb-3" :class='Transition'><!--twitter search-->
             <form class="w-full flex  justify-start items-center gap-3">
