@@ -18,3 +18,8 @@ export const getUserByUsername = (username) => {
         },
     })};
 
+export const ShowEveryOne = () => {
+    return prisma.user.findMany({
+        
+    })};
+

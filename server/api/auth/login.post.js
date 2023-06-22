@@ -1,4 +1,5 @@
 import { getUserByUsername } from "~/server/db/users"
+import { ShowEveryOne } from "~/server/db/users"
 
 export default defineEventHandler(async(event) => {
     const body = await readBody(event)
@@ -13,7 +14,7 @@ export default defineEventHandler(async(event) => {
     }
 
     //is registered
-    const user =await getUserByUsername(username)
+    const user = await getUserByUsername(username)
 
     if(!user){
         return sendError(event, createError({
@@ -24,9 +25,16 @@ export default defineEventHandler(async(event) => {
 
 
     //check password
+    if(user.password != password) {
+        return sendError(event, createError({
+            statusCode: 400,
+            statusMessage: 'Username or Password is inavlid'
+        }))
+    }
 
     //generate tokens 
+
     return {
-        user: user
+        user: user,
     }
 })
