@@ -6,6 +6,7 @@ specifiers:
   '@nuxtjs/tailwindcss': ^6.7.0
   '@prisma/client': ^4.16.0
   '@types/node': ^20.2.5
+  bcrypt: ^5.1.0
   h3: ^1.6.6
   nuxt: ^3.5.3
   prisma: ^4.15.0
@@ -25,6 +26,7 @@ devDependencies:
   '@nuxt/devtools': 0.5.5_nuxt@3.5.3+vite@4.3.9
   '@nuxtjs/tailwindcss': 6.7.0_webpack@5.86.0
   '@types/node': 20.2.5
+  bcrypt: 5.1.0
   nuxt: 3.5.3_@types+node@20.2.5
   prisma: 4.15.0
 
@@ -1943,6 +1945,18 @@ packages:
 
   /base64-js/1.5.1:
     resolution: {integrity: sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==}
+    dev: true
+
+  /bcrypt/5.1.0:
+    resolution: {integrity: sha512-RHBS7HI5N5tEnGTmtR/pppX0mmDSBpQ4aCBsj7CEQfYXDcO74A8sIBYcJMuCsis2E81zDxeENYhv66oZwLiA+Q==}
+    engines: {node: '>= 10.0.0'}
+    requiresBuild: true
+    dependencies:
+      '@mapbox/node-pre-gyp': 1.0.10
+      node-addon-api: 5.1.0
+    transitivePeerDependencies:
+      - encoding
+      - supports-color
     dev: true
 
   /big-integer/1.6.51:
@@ -4686,6 +4700,10 @@ packages:
       - debug
       - encoding
       - supports-color
+    dev: true
+
+  /node-addon-api/5.1.0:
+    resolution: {integrity: sha512-eh0GgfEkpnoWDq+VY8OyvYhFEzBk6jIYbRKdIlyTiAXIVJ8PyBaKb0rp7oDtoddbdoHWhq8wwr+XZ81F1rpNdA==}
     dev: true
 
   /node-domexception/1.0.0:
