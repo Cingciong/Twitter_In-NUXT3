@@ -1,5 +1,8 @@
 import { getUserByUsername } from "~/server/db/users"
 import { ShowEveryOne } from "~/server/db/users"
+import  bcrypt  from "bcrypt"
+import { userTransformer } from "~/server/transformers/user"
+import { createRefreshToken } from "~/server/db/refreshTokens"
 
 export default defineEventHandler(async(event) => {
     const body = await readBody(event)
@@ -23,9 +26,12 @@ export default defineEventHandler(async(event) => {
         }))
     }
 
+    const users = await ShowEveryOne()
 
     //check password
-    if(user.password != password) {
+    const deosThePasswordMatch = await bcrypt.compare(password, user.password)
+
+    if (!deosThePasswordMatch){
         return sendError(event, createError({
             statusCode: 400,
             statusMessage: 'Username or Password is inavlid'
@@ -33,8 +39,18 @@ export default defineEventHandler(async(event) => {
     }
 
     //generate tokens 
+    //access token
+    //refresh token
+    const { accessToken, refreshToken} = generateTokens(user)
+
+    await createRefreshToken({
+        userId: user.id,
+        token: refreshToken
+    })
+
+
 
     return {
-        user: user,
-    }
-})
+        user: userTransformer(user),
+        accessToken: accessToken,
+    }})

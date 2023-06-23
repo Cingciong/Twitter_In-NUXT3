@@ -1,5 +1,5 @@
 import { prisma } from ".";
-import bcrypt from "bcrypt";
+
 
 export const createUser = (userData) => {
     const finalUserData = {
@@ -22,4 +22,5 @@ export const ShowEveryOne = () => {
     return prisma.user.findMany({
         
     })};
+
 
