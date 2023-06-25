@@ -1,8 +1,9 @@
 import { getUserByUsername } from "~/server/db/users"
 import { ShowEveryOne } from "~/server/db/users"
 import  bcrypt  from "bcrypt"
-import { userTransformer } from "~/server/transformers/user"
+import { userTransformer} from "~/server/transformers/user"
 import { createRefreshToken } from "~/server/db/refreshTokens"
+import { sendRefreshToken } from "../../Utils/jwt"
 
 export default defineEventHandler(async(event) => {
     const body = await readBody(event)
@@ -48,9 +49,10 @@ export default defineEventHandler(async(event) => {
         token: refreshToken
     })
 
-
+    sendRefreshToken(event, refreshToken)
 
     return {
         user: userTransformer(user),
         accessToken: accessToken,
-    }})
+    }
+})
